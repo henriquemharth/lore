@@ -97,7 +97,7 @@ export function GraphPage() {
                 <Search size={14} className="absolute top-2 left-2 text-fg-3" aria-hidden />
                 <input
                   className="field w-full pl-7"
-                  placeholder="Find a node (ADR-0004, 60041bb, Architecture…)"
+                  placeholder="Find a node (ADR-0004, 4be71c2, Architecture…)"
                   value={term}
                   onChange={(e) => setTerm(e.target.value)}
                 />

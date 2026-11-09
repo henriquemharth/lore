@@ -2,6 +2,8 @@
 
 **A local, traceable project memory for AI coding agents.**
 
+![lore demo: an agent asks which database holds orders; lore answers with the active ADR, the superseded one and the evidence line, then the search, decision and graph views](docs/demo.gif)
+
 Your project's knowledge is scattered across Markdown: ADRs, runbooks, a docs folder, an Obsidian
 vault, the memory files Claude Code and Codex write for themselves. Agents either can't see it, or
 you paste half of it into every prompt and burn tokens.
@@ -25,10 +27,6 @@ decisions
 omitted
   5 chunks below the minimum score
 ```
-
-| Knowledge graph — every edge has evidence | Search across docs, ADRs and agent memories |
-|---|---|
-| ![lore graph view](docs/screenshots/graph.png) | ![lore search view](docs/screenshots/search.png) |
 
 ## Why lore
 
