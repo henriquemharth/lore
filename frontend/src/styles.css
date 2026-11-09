@@ -1,0 +1,216 @@
+@import "tailwindcss";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-sans/600.css";
+@import "@fontsource/ibm-plex-mono/400.css";
+
+/* A restrained, dense interface: navy as the only action color, neutral surfaces, 4–6px radius,
+   no gradients, glass or glow. Fonts are bundled locally (no CDN). */
+@theme {
+  --font-sans: "IBM Plex Sans", -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --color-brand: #24407a;
+  --color-brand-strong: #1a3161;
+  --color-brand-soft: #e8edf6;
+  --color-canvas: #f4f6f8;
+  --color-surface: #ffffff;
+  --color-surface-2: #edf1f4;
+  --color-fg: #18212b;
+  --color-fg-2: #344354;
+  --color-fg-3: #5b6b7d;
+  --color-line: #d8dee6;
+  --color-line-strong: #bcc6d2;
+  --color-danger: #a8322a;
+  --color-danger-soft: #f8e7e5;
+  --color-ok: #2e6b47;
+  --color-ok-soft: #e3f1e8;
+  --color-warn: #8a5a00;
+  --color-warn-soft: #fbf0d9;
+  --color-highlight: #fff3b0;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-brand: #8fa8e0;
+    --color-brand-strong: #b5c6ee;
+    --color-brand-soft: #1f2a40;
+    --color-canvas: #11161c;
+    --color-surface: #181f27;
+    --color-surface-2: #202933;
+    --color-fg: #e6ebf1;
+    --color-fg-2: #c3ccd7;
+    --color-fg-3: #93a0af;
+    --color-line: #2c3642;
+    --color-line-strong: #3d4958;
+    --color-danger: #f0958c;
+    --color-danger-soft: #3a1f1d;
+    --color-ok: #8fd0a8;
+    --color-ok-soft: #1b3226;
+    --color-warn: #e8c170;
+    --color-warn-soft: #3a2f17;
+    --color-highlight: #5a4d10;
+  }
+}
+
+@layer base {
+  html {
+    font-size: 13px;
+    background: var(--color-canvas);
+    color: var(--color-fg);
+    color-scheme: light dark;
+  }
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-brand);
+    outline-offset: 1px;
+  }
+  mark {
+    background: var(--color-highlight);
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+}
+
+@layer components {
+  .panel {
+    background: var(--color-surface);
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+  }
+  .panel-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 38px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--color-line);
+    font-weight: 600;
+    color: var(--color-fg);
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 30px;
+    padding: 0 12px;
+    border-radius: 4px;
+    border: 1px solid var(--color-line-strong);
+    background: var(--color-surface);
+    color: var(--color-fg);
+    font-weight: 500;
+    white-space: nowrap;
+    transition: background-color 120ms ease;
+  }
+  .btn:hover:not(:disabled) {
+    background: var(--color-surface-2);
+  }
+  .btn:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+  .btn-primary {
+    background: var(--color-brand);
+    border-color: var(--color-brand);
+    color: #fff;
+  }
+  .btn-primary:hover:not(:disabled) {
+    background: var(--color-brand-strong);
+  }
+  @media (prefers-color-scheme: dark) {
+    .btn-primary {
+      color: #11161c;
+    }
+  }
+  .field {
+    height: 30px;
+    padding: 0 8px;
+    border: 1px solid var(--color-line-strong);
+    border-radius: 4px;
+    background: var(--color-surface);
+    color: var(--color-fg);
+    min-width: 0;
+  }
+  .field:focus {
+    outline: 2px solid var(--color-brand);
+    outline-offset: -1px;
+  }
+  .tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    height: 20px;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 11.5px;
+    font-weight: 500;
+    background: var(--color-surface-2);
+    color: var(--color-fg-2);
+    white-space: nowrap;
+  }
+  .tag-ok {
+    background: var(--color-ok-soft);
+    color: var(--color-ok);
+  }
+  .tag-danger {
+    background: var(--color-danger-soft);
+    color: var(--color-danger);
+  }
+  .tag-warn {
+    background: var(--color-warn-soft);
+    color: var(--color-warn);
+  }
+  .tag-brand {
+    background: var(--color-brand-soft);
+    color: var(--color-brand);
+  }
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  .data-table th {
+    text-align: left;
+    font-weight: 500;
+    color: var(--color-fg-3);
+    font-size: 12px;
+    height: 32px;
+    padding: 0 12px;
+    border-bottom: 1px solid var(--color-line);
+    white-space: nowrap;
+  }
+  .data-table td {
+    height: 34px;
+    padding: 4px 12px;
+    border-bottom: 1px solid var(--color-line);
+    vertical-align: middle;
+  }
+  .data-table tr:last-child td {
+    border-bottom: 0;
+  }
+  .link {
+    color: var(--color-brand);
+    text-align: left;
+  }
+  .link:hover {
+    text-decoration: underline;
+  }
+  .tab {
+    height: 34px;
+    padding: 0 12px;
+    border-bottom: 2px solid transparent;
+    color: var(--color-fg-3);
+    font-weight: 500;
+  }
+  .tab[aria-selected="true"] {
+    color: var(--color-brand);
+    border-bottom-color: var(--color-brand);
+  }
+  .code {
+    font-family: var(--font-mono);
+    font-size: 12px;
+  }
+}

@@ -1,0 +1,21 @@
+# Local index, logs and PID — derived from your Markdown, may contain copies of it
+.lore/
+.env
+
+# Memories written by lore_remember in YOUR projects stay local by default
+/memories/
+/memories-*/
+!examples/**/memories/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.ruff_cache/
+dist/
+
+# Frontend
+node_modules/
+frontend/dist/
+
+.DS_Store

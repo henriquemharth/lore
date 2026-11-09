@@ -1,0 +1,11 @@
+# Files lore never reads, in any source.
+deny:
+  - ".env"
+  - ".env.*"
+  - "*.pem"
+  - "*.key"
+  - "*secret*"
+  - "*credential*"
+
+# Indexed and visible in the local UI, but never handed to an AI client over MCP.
+sensitive: []

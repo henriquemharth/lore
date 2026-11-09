@@ -1,0 +1,73 @@
+# Test taxonomy for the fictional "Acme Shop" project.
+root: Lore
+
+categories:
+  - Product
+  - Engineering
+  - Engineering/Architecture
+  - Engineering/Backend
+  - Engineering/Database
+  - Engineering/Frontend
+  - Engineering/Security
+  - Engineering/Infrastructure
+  - Engineering/Deployment
+  - Processes
+  - Decisions
+  - Memories
+  - Memories/MCP
+
+rules:
+  - category: Memories/MCP
+    sources: [memories, memories-billing]
+    confidence: explicit
+    reason: the source is the folder of memories written through MCP (lore_remember)
+  - category: Decisions
+    sources: [notes]
+    paths: ["decisions/*.md", "adr/*.md"]
+    confidence: explicit
+    reason: decisions/ folder of the notes
+  - category: Engineering
+    sources: [notes]
+    paths: ["00-INDEX.md", "01-CURRENT-STATE.md"]
+    confidence: explicit
+    reason: index and current state of the project notes
+  - category: Engineering/Architecture
+    sources: [notes]
+    paths: ["02-ARCHITECTURE.md"]
+    confidence: explicit
+    reason: the file name says ARCHITECTURE
+  - category: Engineering/Database
+    sources: [notes]
+    paths: ["03-DATABASE.md"]
+    confidence: explicit
+    reason: the file name says DATABASE
+  - category: Engineering/Security
+    sources: [notes]
+    paths: ["06-SECURITY.md"]
+    confidence: explicit
+    reason: the file name says SECURITY
+  - category: Engineering/Infrastructure
+    sources: [notes]
+    paths: ["integrations/SERVER-SETUP.md"]
+    confidence: suggestion
+    reason: server setup treated as infrastructure (interpretation)
+
+tags:
+  - category: Engineering/Security
+    words: [security, permission, audit, encrypt, password, login, session, access, vulnerab]
+  - category: Engineering/Infrastructure
+    words: [server, docker, backup, network, volume, printer]
+  - category: Engineering/Deployment
+    words: [deploy, release, rollback]
+  - category: Engineering/Database
+    words: [database, migration, postgres, alembic, table, schema]
+  - category: Engineering/Frontend
+    words: [interface, screen, frontend, design, css, layout]
+  - category: Engineering/Backend
+    words: [backend, api, fastapi, route, endpoint]
+  - category: Engineering/Architecture
+    words: [architecture, stack]
+  - category: Product
+    words: [customer, catalog, checkout]
+  - category: Processes
+    words: [rule, rules, process]

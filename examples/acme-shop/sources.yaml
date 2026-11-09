@@ -1,0 +1,20 @@
+# Sources for the Acme Shop example. Relative roots resolve from this file's folder.
+max_bytes_per_file: 2000000
+
+domains:
+  default:
+    description: "of the Acme Shop example project (fictional e-commerce backend)"
+
+sources:
+  - id: docs
+    name: Acme Shop docs
+    type: folder
+    root: ./docs
+    include: ["**/*.md"]
+
+  - id: memories
+    name: Agent memories (created by lore_remember)
+    type: folder
+    root: ./memories
+    include: ["*.md"]
+    respect_gitignore: false

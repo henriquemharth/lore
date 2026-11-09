@@ -1,0 +1,45 @@
+# Category tree for the Acme Shop example.
+# "rules": the FIRST match sets the main category (by source and/or path). "confidence" is
+#   explicit (the source says so) or suggestion (an interpretation); "reason" is shown in the UI.
+# "tags": extra categories by word in the file name, title and headings (always suggestions).
+root: Acme Shop
+
+categories:
+  - Architecture
+  - Decisions
+  - Operations
+  - Operations/Runbooks
+  - Known issues
+  - Memories
+
+rules:
+  - category: Decisions
+    sources: [docs]
+    paths: ["adr/*.md"]
+    confidence: explicit
+    reason: stored in the adr/ folder
+  - category: Operations/Runbooks
+    sources: [docs]
+    paths: ["runbooks/*.md"]
+    confidence: explicit
+    reason: stored in the runbooks/ folder
+  - category: Architecture
+    sources: [docs]
+    paths: ["ARCHITECTURE.md"]
+    confidence: explicit
+    reason: the file name says ARCHITECTURE
+  - category: Known issues
+    sources: [docs]
+    paths: ["known-issues.md"]
+    confidence: explicit
+    reason: the file name says known issues
+  - category: Memories
+    sources: [memories]
+    confidence: explicit
+    reason: written by an AI agent through lore_remember
+
+tags:
+  - category: Operations
+    words: [deploy, rollback, incident, partition, migration]
+  - category: Known issues
+    words: [bug, workaround, issue, duplicate]
